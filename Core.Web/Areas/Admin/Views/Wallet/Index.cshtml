@@ -1,0 +1,255 @@
+﻿@using Core.Data.Enums
+@using Core.Utilities.Extensions;
+
+@{
+    ViewBag.Title = "Wallet";
+
+    bool is2FA = (bool)ViewBag.Enabled2FA;
+}
+
+@section Styles{
+    <link href="~/admin-admin/controllers/wallet/index.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="~/lib/jquery-qrcode-master/src/jquery.qrcode.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-qrcode-master/src/qrcode.js" asp-append-version="true"></script>
+
+    <script src="~/admin-app/controllers/wallet/index.js" asp-append-version="true"></script>
+    <script>
+            var walletObj = new WalletController();
+        walletObj.initialize('@ViewBag.PublishKey', '@ViewBag.EncryptKey', '@(CommonConstants.TOKEN_CODE)');
+    </script>
+}
+
+<input hidden id="Enabled2FA" value="@is2FA.ToString()" />
+<input hidden id="be-hidden-2faCode" />
+<input hidden id="be-hidden-password" />
+
+<div class="d-flex flex-column flex-column-fluid">
+
+    @await Html.PartialAsync("_ToolbarPartial")
+
+    <div id="kt_app_content" class="app-content flex-column-fluid pt-6 pt-lg-10">
+        <div id="kt_app_content_container" class="app-container container-xxl">
+
+			<!--begin::Col-->
+			<div class="col-xl-12">
+				<!--begin::Tables Widget 4-->
+				<div class="card card-xl-stretch mb-5 mb-xl-8">
+					<!--begin::Header-->
+					<div class="card-header border-0 pt-5"> 
+						<h3 class="card-title align-items-start flex-column">
+							<span class="card-label fw-bold fs-3 mb-1">Wallets</span>
+							@*<span class="text-muted mt-1 fw-semibold fs-7">From primary and future </span>*@
+						</h3>
+						<div class="card-toolbar">
+							<ul class="nav">
+								<li class="nav-item">
+                                    <a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light-primary active fw-bold px-4 me-1" data-bs-toggle="tab" href="#kt_table_widget_4_tab_1">Main</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link btn btn-sm btn-color-muted btn-active btn-active-light-primary fw-bold px-4 me-1" data-bs-toggle="tab" href="#kt_table_widget_4_tab_2">Future</a>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+					<!--end::Header-->
+					<!--begin::Body-->
+					<div class="card-body py-3">
+						<div class="tab-content">
+							<!--begin::Tap pane-->
+							<div class="tab-pane fade show active" id="kt_table_widget_4_tab_1">
+								<!--begin::Table container-->
+								<div class="table-responsive">
+									<!--begin::Table-->
+                                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+										<!--begin::Table head-->
+										<thead>
+											<tr>
+												<th class="p-0 w-50px"></th>
+												<th class="p-0 min-w-150px"></th>
+												<th class="p-0 min-w-140px"></th>
+                                                <th class="p-0 min-w-250px"></th>
+											</tr>
+										</thead>
+										<!--end::Table head-->
+										<!--begin::Table body-->
+										<tbody>
+
+											<tr>
+												@await Html.PartialAsync("_TokenWallet")
+
+											</tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_USDTWallet")
+
+                                            </tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_BUSDWallet")
+                                            </tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_BNBWallet")
+                                            </tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_BotTradeWallet")
+                                            </tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_ClaimTokenWallet")
+                                            </tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_ClaimSHIBWallet")
+                                            </tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_PINetworkWallet")
+                                            </tr>
+                                            
+										</tbody>
+										<!--end::Table body-->
+									</table>
+								</div>
+								<!--end::Table-->
+							</div>
+							<!--end::Tap pane-->
+							<!--begin::Tap pane-->
+							<div class="tab-pane fade" id="kt_table_widget_4_tab_2">
+								<!--begin::Table container-->
+								<div class="table-responsive">
+									<!--begin::Table-->
+                                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+										<!--begin::Table head-->
+										<thead>
+											<tr>
+												<th class="p-0 w-50px"></th>
+												<th class="p-0 min-w-150px"></th>
+												<th class="p-0 min-w-140px"></th>
+                                                <th class="p-0 min-w-200px"></th>
+											</tr>
+										</thead>
+										<!--end::Table head-->
+										<!--begin::Table body-->
+										<tbody>
+											<tr>
+                                                @await Html.PartialAsync("_FutureTokenWallet")
+											</tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_FutureUSDTWallet")
+                                            </tr>
+                                            <tr>
+                                                @await Html.PartialAsync("_FuturePINetworkWallet")
+                                            </tr>
+										</tbody>
+										<!--end::Table body-->
+									</table>
+								</div>
+								<!--end::Table-->
+							</div>
+							<!--end::Tap pane-->
+							
+						</div>
+					</div>
+					<!--end::Body-->
+				</div>
+				<!--end::Tables Widget 4-->
+			</div>
+			<!--end::Col-->
+
+            <div class="row gx-5 gx-xl-10">
+                <div class="col-xl-12 mb-5 mb-xl-10">
+                    <div class="card">
+                        <div class="card-header pt-5">
+                            <h4 class="card-title align-items-start flex-column">
+                                <span class="card-label fw-bold fs-5">Request Status</span>
+                                <span class="text-gray-400 mt-1 fw-semibold fs-6">Withdraw listing</span>
+                            </h4>
+                            <div class="card-toolbar">
+
+                                <div class="d-flex flex-stack flex-wrap gap-4">
+                                   
+                                    <div class="d-flex align-items-center fw-bold">
+                                        <input type="text" id="txt-search-keyword" class="form-control form-control-white form-control-sm" placeholder="Search">
+                                    </div>
+
+                                    <div class="d-flex align-items-center fw-bold">
+                                        <button type="button" id="btnSearch" class="btn btn-sm btn-success">
+                                            <span class="indicator-label">Search</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                    <thead>
+                                        <tr class="fw-bolder text-muted">
+                                            <th class="min-w-90px">
+                                                <span class="d-block">Sponsor</span>
+                                                <span class="d-block">Email</span>
+                                            </th>
+                                            <th class="min-w-125px">Amount</th>
+                                            <th class="min-w-125px">
+                                                <span class="d-block">Fee</span>
+                                                <span class="d-block">Fee Amount</span>
+                                            </th>
+                                            <th class="min-w-125px">Amount Receive</th>
+                                            <th class="">
+                                                <span class="d-block">Address From</span>
+                                                <span class="d-block">Address To</span>
+                                            </th>
+                                            <th>Type</th>
+                                            <th>Status</th>
+                                            <th class="min-w-125px">
+                                                <span class="d-block">Created Date</span>
+                                                <span class="d-block">Updated Date</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbl-content"></tbody>
+                                </table>
+                            </div>
+                            @await Component.InvokeAsync("Paging")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>
+            <span class="fw-bold text-gray-700 d-block fs-7">{{Sponsor}}</span>
+            <span class="fw-bold text-dark d-block fs-7">{{UserName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{Amount}} <span class="text-gray-700 fs-8">{{UnitName}}</span></span>
+        </td>
+        <td>
+            <span class="fw-bold d-block fs-7">{{Fee}}<span class="text-gray-700 fs-8">%</span></span>
+            <span class="fw-bold text-dark d-block fs-7">{{FeeAmount}} <span class="text-gray-700 fs-8">{{UnitName}}</span></span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{AmountReceive}} <span class="text-gray-700 fs-8">{{UnitName}}</span></span>
+        </td>
+        <td>
+            <span class="fw-bold text-gray-700 d-block fs-7">{{AddressFrom}}</span>
+            <span class="fw-bold text-gray-700 d-block fs-7">{{AddressTo}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{TypeName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold d-block">{{{StatusName}}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-muted d-block fs-7">{{DateCreated}}</span>
+            <span class="fw-bold text-muted d-block fs-7">{{DateUpdated}}</span>
+        </td>
+    </tr>
+</script>
+
+
+@await Html.PartialAsync("_WalletUtility")

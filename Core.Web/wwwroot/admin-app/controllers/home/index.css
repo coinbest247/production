@@ -1,0 +1,174 @@
+﻿.select2-container {
+    width: 100% !important;
+}
+/*count down*/
+.countdown.show .running {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: wrap;
+    flex-flow: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+    .countdown.show .running timer {
+        font-size: 55px;
+        font-weight: 600;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        line-height: 1;
+        color: #8c0734;
+    }
+
+        .countdown.show .running timer .days,
+        .countdown.show .running timer .hours,
+        .countdown.show .running timer .minutes,
+        .countdown.show .running timer .seconds {
+            width: 70px;
+            text-align: left;
+            margin: 0 7px;
+        }
+
+@media (max-width: 480px) {
+    .countdown.show .running timer {
+        font-size: 40px;
+    }
+
+        .countdown.show .running timer .days,
+        .countdown.show .running timer .hours,
+        .countdown.show .running timer .minutes,
+        .countdown.show .running timer .seconds {
+            width: 49px;
+        }
+}
+
+.countdown.show .running .labels {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 14px;
+}
+
+    .countdown.show .running .labels span {
+        width: 97px;
+        text-align: center;
+        margin: 0px -11px;
+    }
+
+@media (max-width: 480px) {
+    .countdown.show .running .labels span {
+        width: 69px;
+    }
+}
+
+.countdown.show .running .text {
+    font-size: 20px;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.countdown.show .running button {
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+.countdown.show .running .break {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    height: 0;
+}
+
+.countdown.show .ended {
+    display: none;
+    -ms-flex-flow: wrap;
+    flex-flow: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+    .countdown.show .ended .text {
+        font-size: 20px;
+    }
+
+.countdown.show .ended button {
+    border: none;
+    background-color: #5a0000;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+    .countdown.show .ended .break {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        height: 0;
+    }
+.days{
+    display:none;
+}
+.jumbotron {
+    /*margin-top: 25px;
+    margin-bottom: 15px;*/
+}
+
+    .jumbotron .running timer {
+        color: #f16122 !important;
+    }
+
+        .jumbotron .running timer span {
+            background: #c22026;
+            color: #fff;
+            text-align: center !important;
+            font-size: 33px;
+            border-radius: 6px;
+            font-weight: 500;
+            /* margin: 0 !important; */
+            padding: 15px 10px 10px 10px !important;
+            width: 60px !important;
+            height: 60px;
+        }
+
+.countdown.show .running .labels {
+    font-weight: 700;
+}
+/*count down*/
+/* Normal desktop :1366px. */
+@media (min-width: 1170px) and (max-width: 1400px) {
+}
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1169px) {
+}
+
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    
+}
+
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+    .countdown.show .running .labels span {
+        width: 95px;
+    }
+}
+
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    
+}
+/* Large Mobile :360px. */
+@media only screen and (min-width: 360px) and (max-width: 480px) {
+    
+}

@@ -1,0 +1,106 @@
+﻿@using Core.Data.Enums;
+@using Core.Utilities.Extensions;
+@{
+    ViewBag.Title = "Buy B247 via Wallet";
+}
+
+@section Styles{
+
+}
+
+@section Scripts{
+    <script src="~/admin-app/controllers/exchange/index.js"></script>
+
+    <script>
+        var exchangeObj = new ExchangeController();
+        exchangeObj.initialize();
+    </script>
+}
+
+<input type="hidden" id="tokenPrice" />
+<input type="hidden" id="bnbPrice" />
+<input type="hidden" id="transactionType" />
+<input type="hidden" id="tokenCode" value="@Unit.Token.GetDescription()" />
+
+<div class="d-flex flex-column flex-column-fluid">
+
+    @await Html.PartialAsync("_ToolbarPartial")
+
+    <div id="kt_app_content" class="app-content flex-column-fluid pt-6 pt-lg-10">
+        <div id="kt_app_content_container" class="app-container container-xxl">
+            <div class="d-flex flex-column flex-lg-row">
+                <div class="d-flex flex-center flex-column flex-lg-row-auto w-100 mb-8 mb-lg-0">
+                    <div class="w-100 w-lg-450px w-xxl-450px mb-8 mb-lg-0">
+                        @Html.AntiForgeryToken()
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-10">
+                                    <label class="fs-5 form-label fw-bold text-dark mb-5">
+                                        <img src="~/images/tokenicon.png" style="width: 45px; background: white; border-radius: 50%; padding: 3px;" />
+                                        @(CommonConstants.PROJECT_NAME) - @(CommonConstants.TOKEN_IN_CODE)
+                                    </label>
+
+                                    <div class="mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">
+                                            Price $<span class="tokenPrice fw-bold">0.00</span> / @Unit.Token.GetDescription()
+                                        </label>
+                                    </div>
+
+                                    <div class="mb-5">
+                                        <label class="fs-6 fw-semibold form-label text-gray-700">Wallet <span class="lblTokenCode">@Unit.USDT.GetDescription()</span></label>
+                                        <select data-control="select2" id="ddlWallet" class="form-select form-select-solid">
+                                            <option value="@((int)Unit.USDT)">@Unit.USDT.GetDescription()</option>
+                                            <option value="@((int)Unit.BUSD)">@Unit.BUSD.GetDescription()</option>
+                                            <option value="@((int)Unit.BNB)">@Unit.BNB.GetDescription()</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">
+                                            Min buy: <strong class="numberFormat minBuy">0</strong>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-10">
+                                    <label class="fs-6 form-label text-gray-700">
+                                        Balance: <span class="CurrentBalance fw-bold">0.0000</span> <span class="lblTokenCode">@Unit.USDT.GetDescription()</span>
+                                    </label>
+
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control form-control-solid border-0 numberFormat4"
+                                               value="0.00" id="txtAmount">
+                                        <button type="button" class="btn btn-icon
+                                                    btn-active-color-gray-700 position-absolute
+                                                    translate-middle-y top-50 end-0 btnMax">
+                                            Max
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="mb-10">
+                                    <label class="fs-6 form-label fw-bold text-dark mb-5">Transaction Info</label>
+
+                                    <div class="d-flex flex-stack mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">Swap Value</label>
+                                        <label class="text-gray-700 fw-bold lblTotalUSD">$0.00</label>
+                                    </div>
+
+                                    <div class="d-flex flex-stack mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">Token Receive</label>
+                                        <label class="text-gray-700 fw-bold lblTotalToken">0.00 @(CommonConstants.TOKEN_IN_CODE)</label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a href="/admin/home/index" class="btn btn-active-light-warning btn-color-gray-600 me-3">Cancel</a>
+                                    <button class="btn btn-warning text-black" id="btnConfirm">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

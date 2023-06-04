@@ -1,0 +1,198 @@
+﻿@model ExchangeTokenDefiViewModel
+@using Core.Data.Enums;
+@using Core.Utilities.Extensions;
+@{
+    ViewBag.Title = "Buy B247 via Defi";
+}
+
+@section Styles{
+
+}
+
+@section Scripts{
+    <script src="~/client-app/controllers/exchange/index.js"></script>
+    <script src="~/client-app/shared/defi-helper.js"></script>
+    <script>
+        var exchangeObj = new ExchangeController();
+        exchangeObj.initialize();
+
+        var dapp = new DeFiHelper.DApp();
+        dapp.init();
+    </script>
+}
+
+<input type="hidden" id="isExchange" />
+<input type="hidden" id="tokenPrice" />
+<input type="hidden" id="bnbPrice" />
+<input type="hidden" id="transactionType" />
+<input type="hidden" id="tokenCode" value="@Unit.Token.GetDescription()" />
+
+<div class="d-flex flex-column flex-column-fluid">
+
+    @await Html.PartialAsync("_ToolbarPartial")
+
+    <div id="kt_app_content" class="app-content flex-column-fluid pt-6 pt-lg-10">
+        <div id="kt_app_content_container" class="app-container container-xxl">
+            <div class="d-flex flex-column flex-lg-row">
+                <div class="d-flex flex-center flex-column flex-lg-row-auto w-100 mb-8 mb-lg-0">
+                    <div class="w-100 w-lg-450px w-xxl-450px mb-8 mb-lg-0">
+                        @Html.AntiForgeryToken()
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-10">
+                                    <label class="fs-5 form-label fw-bold text-dark mb-5">
+                                        <img src="~/images/ico.png" style="width: 45px; background: white; border-radius: 50%; padding: 3px;" />
+                                        @(CommonConstants.PROJECT_NAME) - @(CommonConstants.TOKEN_IN_CODE)
+                                    </label>
+
+                                    <div class="mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">
+                                            Wallet Address <span class="walletAddress fw-bold">Not connected</span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-5">
+                                        <label class="fs-6 form-label text-gray-700">
+                                            Balance: <span class="CurrentBalance fw-bold">0.0000</span> <span class="lblTokenCode">@Unit.BNB.GetDescription()</span>
+                                        </label>
+                                    </div>
+
+
+                                    <div class="mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">
+                                            Price $<span class="tokenPrice fw-bold">0.00</span> / @Unit.Token.GetDescription()
+                                        </label>
+                                    </div>
+
+
+                                    <div class="mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">
+                                            Min buy: <strong class="numberFormat minBuy">0.005</strong> @Unit.BNB.GetDescription()
+                                        </label>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="mb-10">
+
+
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control form-control-solid border-0 numberFormat4"
+                                               value="0.00" id="txtAmount">
+                                        <button type="button" class="btn btn-icon
+                                                    btn-active-color-gray-700 position-absolute
+                                                    translate-middle-y top-50 end-0 btnMax">
+                                            Max
+                                        </button>
+                                        <span class="form-label fs-7 mt-1 text-danger lblErrorInsufficient"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-10">
+                                    <label class="fs-6 form-label fw-bold text-dark mb-5">Transaction Info</label>
+
+                                    <div class="d-flex flex-stack mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">Swap Value</label>
+                                        <label class="text-gray-700 fw-bold lblTotalUSD">$0.00</label>
+                                    </div>
+
+                                    <div class="d-flex flex-stack mb-5">
+                                        <label class="fs-6 fw-semibold text-gray-700">Token Receive</label>
+                                        <label class="text-gray-700 fw-bold lblTotalToken">0.00 @(CommonConstants.TOKEN_IN_CODE)</label>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-center">
+
+                                    <a href="/" class="btn btn-active-light-warning btn-color-gray-600 me-3">Cancel</a>
+                                    <button class="btn btn-warning text-black" id="wallet-connect">Connect Wallet</button>
+                                    <button class="btn btn-warning text-black" style="display:none" id="btnExchangeDefiConfirm">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="kt_app_content" class="app-content flex-column-fluid pt-6 pt-lg-10">
+        <div id="kt_app_content_container" class="app-container container-xxl">
+            <div class="row gx-5 gx-xl-10">
+                <div class="col-xl-12 mb-5 mb-xl-10">
+                    <div class="card">
+                        <div class="card-header pt-5">
+                            <div class="card-toolbar">
+                                <div class="d-flex flex-stack flex-wrap gap-4">
+
+                                    <div class="d-flex align-items-center fw-bold">
+                                        <input type="text" id="txt-search-keyword" class="form-control form-control-white form-control-sm" placeholder="Search">
+                                    </div>
+
+                                    <div class="d-flex align-items-center fw-bold">
+                                        <button type="button" id="btnSearch" class="btn btn-sm btn-success">
+                                            <span class="indicator-label">Search</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                    <thead>
+                                        <tr class="fw-bolder text-muted">
+
+                                            <th class="min-w-90px">
+                                                <span class="d-block">BNB Payment</span>
+                                            </th>
+                                            @*<th>USD</th>*@
+                                            <th class="min-w-90px">
+                                                <span class="d-block">B247 Recieve</span>
+                                            </th>
+                                            <th>Payment Date</th>
+                                            <th class="">
+                                                <span class="d-block">Address From</span>
+                                                <span class="d-block">Address To</span>
+                                                <span class="d-block">BNB txtHash</span>
+                                                <span class="d-block">Token txtHash</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbl-content"></tbody>
+                                </table>
+                            </div>
+                            @await Component.InvokeAsync("Paging")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>
+            <span class="fw-bold text-gray-700 d-block fs-7">{{BNBAmount}}</span>
+        </td>
+    @*<td>
+            <span class="text-dark fw-bold text-hover-primary d-block fs-7">${{USDAmount}}</span>
+        </td>*@
+        <td>
+            <span class="fw-bold text-gray-700 d-block fs-7">{{TokenAmount}}</span>
+        </td>
+        <td>
+            <span class="fw-bolder text-dark text-hover-primary d-block fs-7">{{DateCreated}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreAddressUrl/{{AddressFrom}}">{{AddressFrom}}</a></span>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreAddressUrl/{{AddressTo}}">{{AddressTo}}</a></span>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreTransactionUrl/{{BNBTransactionHash}}">{{BNBTransactionHash}}</a> </span>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreTransactionUrl/{{TokenTransactionHash}}">{{TokenTransactionHash}}</a> </span>
+        </td>
+    </tr>
+</script>
+
+@await Html.PartialAsync("_WalletPartial")

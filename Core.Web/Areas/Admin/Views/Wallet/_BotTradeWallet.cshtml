@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Core.Data.Enums;
+@using Core.Utilities.Extensions;
+
+@*<div class="card card-dashed h-xl-80 flex-row flex-stack flex-wrap p-6">
+    <div class="d-flex flex-column">
+        <div class="d-flex align-items-center py-2">
+            <a href="https://bscscan.com/token/@(CommonConstants.USDTContract)" target="_blank">
+                <img src="~/images/usdt.png" alt="Wallet BOTTRADE" class="me-4 w-40px" />
+            </a>
+            <div>
+                <div class="fs-6 fw-bold text-gray-800">Wallet BOT TRADE</div>
+                <div class="fs-7 fw-bold text-gray-600"><span class="numberFormat4 text-dark fw-bolder BOTTRADEAmount">0.0000</span> @Unit.USDT.GetDescription()</div>
+            </div>
+        </div>
+
+    </div>
+</div>*@
+
+
+<td>
+    <div class="symbol symbol-50px">
+        <img src="~/images/usdt.png" alt="Wallet BOTTRADE" />
+    </div>
+</td>
+<td>
+    <a href="https://bscscan.com/token/@(CommonConstants.USDTContract)" target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-5">BOT Trade</a>
+    <span class=" fw-semibold d-block fs-6 BOTTRADEAmount">0.0000</span>
+</td>
+<td>
+    <span class=" fw-semibold d-block fs-6">@(Unit.USDT.GetDescription())</span>
+
+</td>
+<td class="text-end">
+    
+</td>

@@ -1,0 +1,26 @@
+﻿@using Core.Data.Enums;
+@using Core.Utilities.Extensions;
+
+
+<td>
+    <div class="symbol symbol-50px">
+        <img src="~/images/tokenicon.png" alt="" />
+    </div>
+</td>
+<td>
+    <a href="https://bscscan.com/token/@(CommonConstants.TokenContract)" target="_blank" class="text-dark fw-bold text-hover-primary mb-1 fs-5">@Unit.Token.GetDescription()</a>
+    <span class=" fw-semibold d-block fs-6 BCFutureAmount">0.0000</span>
+</td>
+<td>
+    <span class=" fw-semibold d-block fs-6">@(CommonConstants.TOKEN_CODE)</span>
+
+</td>
+
+<td class="text-end">
+    <button class="btn btn-sm btn-light-dark text-gray-800 me-2 btnTransferMain"
+            data-tokencode="@Unit.Token.GetDescription()"
+            data-unit="@((int)Unit.Token)">
+        Transfer
+    </button>
+    
+</td>

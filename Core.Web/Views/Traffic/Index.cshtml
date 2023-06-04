@@ -1,0 +1,101 @@
+﻿@using System.Globalization
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <style src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css" type="text/css"></style>
+    <script src="~/client-app/controllers/traffic/index.js"></script>
+    <script>
+        var reportController = new ReportController();
+        reportController.initialize();
+    </script>
+}
+
+    <!-- Breadcrumbs Section Start -->
+    <div class="gamfi-breadcrumbs-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="breadcrumbs-area sec-heading">
+                        <div class="sub-inner mb-15">
+                            <a class="breadcrumbs-link" href="/">Report</a>
+                            <span class="sub-title">Leadership Statitics</span>
+                            <img class="heading-left-image" src="~/client-side/earntoken/assets/images/icons/steps.png" alt="Steps-Image" />
+                        </div>
+                        <h2 class="title mb-0">Traffics</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="participat-information project-details-conent gamfi-about-secion">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-12 pl-25 md-pl-15">
+
+                    <div class="row project-item d-flex justify-content-between align-items-center">
+                        
+
+                        <div class="col-lg-3 pl-25 md-pl-15">
+                            <div class="project-form-list">
+                                <div class="balance-form-area mb-27" style="padding-bottom:5%">
+
+                                <input type="text" id="txt-startdate" value="@DateTime.UtcNow.Date.AddDays(-1).ToShortDateString()" placeholder="Start date" name="walletAddress" required>
+
+
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-2 pl-25 md-pl-15">
+                            <div class="project-form-list">
+                                <div class="balance-form-area mb-27" style="padding-bottom:41%">
+
+                                    <div class="white-shape-small approve" id="btnSearch">
+                                        <input type="submit" value="Search">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="gamfi-previous-section TokenomicsTable_Sect md-pb-50 mt-5 pt-5">
+        <div class="container">
+            
+            <div class="MySavingTable">
+                <div class="leaderboard-table-list pb-140 md-pb-80">
+                    <div class="">
+                        <div class="table-responsive">
+                            <table class="table table-row-dashed table-row-gray-300 align-middle">
+                                <tr>
+                                    <th>Country Name</th>
+                                    <th>Visits</th>
+                                    
+                                </tr>
+                                <tbody id="tbl-content"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="table-template" type="x-tmpl-mustache">
+        <tr class="{{bgName}}">
+
+            <td>{{clientCountryName}}</td>
+            <td>{{requests}}</td>
+            
+        </tr>
+    </script>

@@ -1,0 +1,217 @@
+﻿@{
+    ViewBag.Title = "Request Status";
+}
+
+@section Styles{
+    <link href="~/admin-app/controllers/ticket-transaction/index.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section Scripts{
+    <script src="~/admin-app/controllers/ticket-transaction/index.js"></script>
+    <script>
+        var ticketTransaction = new TicketTransactionController();
+        ticketTransaction.initialize();
+    </script>
+}
+
+<div class="d-flex flex-column flex-column-fluid">
+
+    @await Html.PartialAsync("_ToolbarPartial")
+
+    <div id="kt_app_content" class="app-content flex-column-fluid pt-6 pt-lg-10">
+        <div id="kt_app_content_container" class="app-container container-xxl">
+            <div class="row gx-5 gx-xl-10">
+                <div class="col-xl-12 mb-5 mb-xl-10">
+                    <div class="card">
+                        <div class="card-header card-header-stretch overflow-auto">
+                            <ul class="nav nav-stretch nav-line-tabs fw-bold border-transparent flex-nowrap fs-5" role="tablist" id="kt_layout_builder_tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-gray-700" data-bs-toggle="tab" href="#kt_history" role="tab" aria-selected="false">All Ticket Requests</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-gray-700" data-bs-toggle="tab" id="tabPackage" href="#kt_today" role="tab" aria-selected="true">Today Ticket Requests</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="card-body ">
+                            <div class="tab-content">
+
+                                <div class="tab-pane fade active show " id="kt_history">
+                                    <div class="card">
+                                        <div class="card-header pt-5">
+                                            <div class="card-toolbar">
+
+                                                <div class="d-flex flex-stack flex-wrap gap-4">
+                                                    <div class="d-flex align-items-center fw-bold">
+                                                        @Html.DropDownList("TicketTransactionStatus", null, "Select transaction type", new { @class = "form-select form-select-sm form-select-solid" })
+                                                    </div>
+
+                                                    <div class="d-flex align-items-center fw-bold">
+                                                        <input type="text" id="txt-search-keyword" class="form-control form-control-white form-control-sm" placeholder="Search">
+                                                    </div>
+
+                                                    <div class="d-flex align-items-center fw-bold">
+                                                        <button type="button" id="btnSearch" class="btn btn-sm btn-success">
+                                                            <span class="indicator-label">Search</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                                    <thead>
+                                                        <tr class="fw-bolder text-muted">
+                                                            <th class="min-w-100px">Action</th>
+                                                            <th class="min-w-100px">Status</th>
+                                                            <th class="min-w-90px">
+                                                                <span class="d-block">Type</span>
+                                                                <span class="d-block">Sponsor</span>
+                                                                <span class="d-block">Email</span>
+                                                            </th>
+                                                            <th class="min-w-80px">Amount</th>
+                                                            <th class="min-w-90px">
+                                                                <span class="d-block">Fee</span>
+                                                                <span class="d-block">Fee Amount</span>
+                                                            </th>
+                                                            <th class="min-w-90px">Amount Receive</th>
+                                                            <th class="">
+                                                                <span class="d-block">Address From</span>
+                                                                <span class="d-block">Address To</span>
+                                                                <span class="d-block">Transaction Hash</span>
+                                                            </th>
+                                                            <th class="">
+                                                                <span class="d-block">Created Date</span>
+                                                                <span class="d-block">Updated Date</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbl-content"></tbody>
+                                                </table>
+                                            </div>
+                                            @await Component.InvokeAsync("Paging")
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="kt_today">
+                                    <div class="card">
+
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                                    <thead>
+                                                        <tr class="fw-bolder text-muted">
+                                                            <th class="min-w-100px">Action</th>
+                                                            <th class="min-w-100px">Status</th>
+                                                            <th class="min-w-90px">
+                                                                <span class="d-block">Type</span>
+                                                                <span class="d-block">Sponsor</span>
+                                                                <span class="d-block">Email</span>
+                                                            </th>
+                                                            <th class="min-w-80px">Amount</th>
+                                                            <th class="min-w-90px">
+                                                                <span class="d-block">Fee</span>
+                                                                <span class="d-block">Fee Amount</span>
+                                                            </th>
+                                                            <th class="min-w-90px">Amount Receive</th>
+                                                            <th class="">
+                                                                <span class="d-block">Address From</span>
+                                                                <span class="d-block">Address To</span>
+                                                                <span class="d-block">Transaction Hash</span>
+                                                            </th>
+                                                            <th class="">
+                                                                <span class="d-block">Created Date</span>
+                                                                <span class="d-block">Updated Date</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbl-content-today"></tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>
+            <span class="text-muted fw-bold d-block fs-8">{{Function}}</span>
+        </td>
+        <td>
+            <span class="text-muted fw-bold d-block fs-8">{{{StatusName}}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{TypeName}}</span>
+            <span class="fw-bold text-dark d-block fs-6">{{Sponsor}}</span>
+            <span class="fw-bold text-dark d-block fs-6">{{UserName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{Amount}} {{UnitName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold d-block fs-7">{{Fee}}%</span>
+            <span class="fw-bold text-dark d-block fs-7">{{FeeAmount}} {{UnitName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{AmountReceive}} {{UnitName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreAddressUrl/{{AddressFrom}}">{{AddressFrom}}</a></span>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreAddressUrl/{{AddressTo}}">{{AddressTo}}</a></span>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreTransactionUrl/{{TransactionHash}}">{{TransactionHash}}</a> </span>
+        </td>
+        <td>
+            <span class="fw-bold d-block fs-7">{{DateCreated}}</span>
+            <span class="fw-bold d-block fs-7">{{DateUpdated}}</span>
+        </td>
+    </tr>
+</script>
+
+<script id="table-today-template" type="x-tmpl-mustache">
+    <tr>
+        <td>
+            <span class="text-muted fw-bold d-block fs-8">{{{Function}}}</span>
+        </td>
+        <td>
+            <span class="text-muted fw-bold d-block fs-8">{{{StatusName}}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{TypeName}}</span>
+            <span class="fw-bold text-dark d-block fs-6">{{Sponsor}}</span>
+            <span class="fw-bold text-dark d-block fs-6">{{UserName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{Amount}} {{UnitName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold d-block fs-7">{{Fee}}%</span>
+            <span class="fw-bold text-dark d-block fs-7">{{FeeAmount}} {{UnitName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7">{{AmountReceive}} {{UnitName}}</span>
+        </td>
+        <td>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreAddressUrl/{{AddressFrom}}">{{AddressFrom}}</a></span>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreAddressUrl/{{AddressTo}}">{{AddressTo}}</a></span>
+            <span class="fw-bold text-dark d-block fs-7"><a target="_blank" href="@CommonConstants.ExploreTransactionUrl/{{TransactionHash}}">{{TransactionHash}}</a> </span>
+        </td>
+        <td>
+            <span class="fw-bold d-block fs-7">{{DateCreated}}</span>
+            <span class="fw-bold d-block fs-7">{{DateUpdated}}</span>
+        </td>
+    </tr>
+</script>

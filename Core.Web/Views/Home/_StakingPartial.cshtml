@@ -1,0 +1,544 @@
+﻿@using Core.Utilities.Constants
+@using Core.Data.Enums
+@using Core.Utilities.Extensions
+
+<section class="tf-section project_2" id="Staking">
+    <div class="overlay">
+        <img src="~/client-side/boscapital/assets/images/backgroup/bg_project.webp" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tf-title" data-aos="fade-up" data-aos-duration="800">
+                    <h2 class="title">
+                        Staking Items
+                    </h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="flat-tabs" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="wrapper_menutab">
+                        <ul class="menu-tab wrapper">
+                            <li class="active"><span>Profit 8%</span></li>
+                            <li><span>Profit 10%</span></li>
+                            <li><span>Profit 12%</span></li>
+                        </ul>
+                    </div>
+                    <div class="content-tab mt40">
+                        <div class="content-inner project-box-wrapper">
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-01.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package1000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package1000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">8%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-02.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package2000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package2000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">8%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-03.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package5000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package5000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">8%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-04.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package10000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package10000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">8%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-05.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package20000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package20000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">8%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="content-inner project-box-wrapper">
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-06.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package30000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package30000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">10%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-07.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package50000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package50000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">10%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="content-inner project-box-wrapper">
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-08.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package100000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package100000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">12%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-09.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package200000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package200000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">12%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-10.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package500000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package500000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">12%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-11.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package1000000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package1000000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">12%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+
+                            <div class="project-box">
+                                <div class="image">
+                                    <img class="mask" src="~/images/packgae/package-12.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <span class="boder"></span>
+                                    <div class="content-inner">
+                                        <h5 class="heading"><a href="#">@StakingPackage.Package2000000.GetDescription()</a></h5>
+                                        <p class="desc">
+                                            Interest rate received per day
+                                            <br />@(CommonConstants.TOKEN_CODE) Coin price grows over time
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="text">Package Price:</p>
+                                                <p class="price">@((int)StakingPackage.Package2000000) @CommonConstants.TOKEN_OUT_CODE</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Interest Rate:</p>
+                                                <p class="price">12%/Month</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Time Profit:</p>
+                                                <p class="price">25/Months</p>
+                                            </li>
+                                            <li>
+                                                <p class="text">Maxout:</p>
+                                                <p class="price">300%</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="/login" class="tf-button style1">
+                                    Staking
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="tf-section project_3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tf-title" data-aos="fade-up" data-aos-duration="800">
+                    <h2 class="title">
+                        Easy to join Staking <br class="show-destop">  with 3 steps
+                    </h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="project-box-style2_wrapper">
+                    <div class="project-box-style2" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                        <div class="image">
+                            <img src="~/client-side/boscapital/assets/images/common/project_5.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h5>Register Account</h5>
+                            <p class="desc">Register an account and confirm information via email to become a member and receive many benefits of the system</p>
+                            <p class="number">01</p>
+                        </div>
+                        <a href="#" class="btn_project">
+                            <img src="~/client-side/boscapital/assets/images/common/button_project.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="project-box-style2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                        <div class="image">
+                            <img src="~/client-side/boscapital/assets/images/common/project_6.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h5>Deposit Wallet</h5>
+                            <p class="desc">The system supports package payment in USDT or @(CommonConstants.TOKEN_CODE) for payment when Staking</p>
+                            <p class="number">02</p>
+                        </div>
+                        <a href="#" class="btn_project">
+                            <img src="~/client-side/boscapital/assets/images/common/button_project.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="project-box-style2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                        <div class="image">
+                            <img src="~/client-side/boscapital/assets/images/common/project_7.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h5>Start Staking</h5>
+                            <p class="desc">Choose the package according to your desired interest rate and join the Staking</p>
+                            <p class="number">03</p>
+                        </div>
+                        <a href="#" class="btn_project">
+                            <img src="~/client-side/boscapital/assets/images/common/button_project.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

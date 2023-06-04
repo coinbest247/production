@@ -1,0 +1,79 @@
+﻿@using Core.Data.Enums;
+@using Core.Utilities.Extensions;
+@{
+    ViewBag.Title = "Invest Package";
+}
+
+@section Styles{
+
+}
+
+@section Scripts{
+    <script src="~/admin-app/controllers/invest-package/invest.js"></script>
+
+    <script>
+        var investObj = new InvestPackage();
+        investObj.initialize();
+    </script>
+}
+
+
+<div class="d-flex flex-column flex-column-fluid">
+
+    @await Html.PartialAsync("_ToolbarPartial")
+
+    <div id="kt_app_content" class="app-content flex-column-fluid pt-6 pt-lg-10">
+        <div id="kt_app_content_container" class="app-container container-xxl">
+            <div class="d-flex flex-column flex-lg-row">
+                <div class="d-flex flex-center flex-column flex-lg-row-auto w-100 mb-8 mb-lg-0">
+                    <div class="w-100 w-lg-450px w-xxl-450px mb-8 mb-lg-0">
+                        @Html.AntiForgeryToken()
+                        <div class="card">
+                            <div class="card-header pt-5">
+                                <h4 class="card-title align-items-center flex-column w-100">
+                                    <span class="card-label fw-bold fs-3">Invest Package</span>
+                                    <span class="text-danger mt-1 fs-5">Invest BOT TRADE AI to receive passive profit every day</span>
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-5">
+                                    <label class="fs-6 fw-semibold form-label text-gray-700">Wallet</label>
+                                    <select data-control="select2" id="ddlWallet" class="form-select form-select-solid">
+                                        <option selected value="@((int)Unit.USDT)">@Unit.USDT.GetDescription()</option>
+                                        <option value="@((int)Unit.BUSD)">@Unit.BUSD.GetDescription()</option>
+                                        <option value="@((int)Unit.BNB)">@Unit.BNB.GetDescription()</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-5">
+                                    <label class="fs-6 fw-semibold text-gray-700">
+                                        Balance: <span class="fw-bold text-gray-800" id="txtBalance">0</span> <span class="lblTokenCode">@Unit.USDT.GetDescription()</span>
+                                    </label>
+                                </div>
+                                <div class="mb-5">
+                                    <label class="fs-6 fw-semibold form-label text-gray-700">Invest Amount</label>
+
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control form-control-solid border-0 numberFormat4"
+                                               value="0.0000" id="txtAmount">
+                                        <button type="button" class="btn btn-icon
+                                                    btn-active-color-gray-700 position-absolute
+                                                    translate-middle-y top-50 end-0 btnMax">
+                                            Max
+                                        </button>
+                                    </div>
+
+                                    <span class="form-label fs-7 mt-1 text-danger lblErrorInsufficient"></span>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a href="/home" class="btn btn-active-light-warning btn-color-gray-600 me-3">Cancel</a>
+                                    <button class="btn btn-warning text-black" id="btnConfirm">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

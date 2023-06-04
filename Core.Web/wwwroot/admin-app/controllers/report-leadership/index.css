@@ -1,0 +1,67 @@
+﻿
+
+@media only screen and (max-width: 575.9px) {
+}
+
+@media screen and (max-width: 576px) {
+}
+
+@media (max-width: 767.98px) {
+}
+
+@media only screen and (max-width: 991px) {
+    .gamfi-project-section {
+        padding-top: 75px;
+        padding-bottom: 0px;
+    }
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 1500px) {
+}
+
+@media (max-width: 1800px) {
+}
+
+
+.project-details-conent .project-item {
+    background: rgb(37 37 39 / 0%);
+    margin-bottom: 70px !important;
+    padding: 15px 15px !important;
+    backdrop-filter: blur(5px);
+}
+
+    .project-details-conent .project-item .project-form-list .balance-form-area input {
+        position: relative;
+        z-index: 3;
+        border: 2px solid rgba(255,255,255,.15) !important;
+        height: 45px;
+    }
+
+        .project-details-conent .project-item .project-form-list .balance-form-area input[type="submit"] {
+            color: #000;
+            background: #ffe500;
+            transition: 0.4S;
+            text-transform: uppercase;
+            font-family: "Roboto", sans-serif;
+            padding-left: 30px;
+            padding-right: 30px;
+            width: 150px;
+            height: 45px;
+            line-height: 5px;
+        }
+
+.gamfi-project-section {
+    padding-bottom: 0px;
+}
+
+    .gamfi-project-section .project-item {
+        margin-bottom: 15px;
+        padding: 20px;
+    }
+
+.text-right {
+    text-align: right;
+}

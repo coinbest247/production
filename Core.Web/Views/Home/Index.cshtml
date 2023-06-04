@@ -1,0 +1,250 @@
+﻿@section Styles{
+}
+
+@section Scripts{
+    <script src="~/lib/amcharts/core.js"></script>
+    <script src="~/lib/amcharts/charts.js"></script>
+    <script src="~/lib/amcharts/animated.js"></script>
+
+    <script src="~/client-app/controllers/home/index.js"></script>
+    <script>
+        var homeController = new HomeController();
+        homeController.initialize();
+    </script>
+}
+
+<section class="banner-top style-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                <div class="banner-top__content">
+                    <h2 class="title">What is CoinBest247? <span>UNLEASH THE POWER OF BLOCKCHAIN AI WITH</span> COINBEST247</h2>
+                    <p class="desc">❖ Established in 2016 in Cardiff, United Kingdom</p>
+                    <p class="desc">❖ CoinBest247 is a leading company in the world of cryptocurrency, specializing in three main areas: Affiliate Agent, Automated Invest Trading using BOT AI, and Futures Trading</p>
+                    <p class="desc">❖ CoinBest247 is backed by the B247 utility token, which is required to access various AI tools and products powered by CoinBest247</p>
+                    <div class="button">
+                        <a href="/exchangedefi" class="btn-action style-2"><span>Buy B247 via Defi</span></a>
+                    </div>
+
+                    <ul class="content-list">
+
+                        <li>
+                            <span class="icon-pegasus"></span>
+                            <h5>$0.000006</h5>
+                            <p>B247 Price</p>
+                        </li>
+                        <li>
+                            <span class="icon-brute"></span>
+                            <h5>0.3 BNB</h5>
+                            <p>Min Buy</p>
+                        </li>
+                        <li>
+                            <span class="icon-bear-face"></span>
+                            <h5>150.000.000.000.000</h5>
+                            <p>Total Sale</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="banner-top__sale">
+                    <img src="~/images/homebanner.svg" />
+                    <div class="sale-content">
+                        <h6>Token sale End In!</h6>
+                        <span class="js-countdown" data-timer="1699784112"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end Banner Top -->
+<!-- Section Features -->
+@*<section class="about style-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="about__content">
+                    <div class="row">
+                        <div class="col-xl-5 col-md-12">
+                            <div class="block-text">
+                                <h3 class="title">What is ICO?</h3>
+                                <p class="fs-20 mt-12">ICO Land is a generative NFT art collectible project of 10.000 unique, digitally hand-drawn avatars immortalized on the Ethereum blockchain.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-md-12">
+                            <div class="tf-box">
+                                <div class="box-icon">
+                                    <span class="icon-buy"></span>
+                                    <p>Buy and sell items easily</p>
+                                </div>
+                                <div class="box-icon">
+                                    <span class="icon-create"></span>
+                                    <p>Create collections & earn rewards</p>
+                                </div>
+                                <div class="box-icon">
+                                    <span class="icon-chase"></span>
+                                    <p>Chase limited edition ICOLand</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<!-- End Section Features -->
+<!-- Section RoadMap -->
+@await Html.PartialAsync("_TokenNomicsPartial")
+<!-- end Section RoadMap -->
+<!-- Section RoadMap -->
+@await Html.PartialAsync("_RoadmapPartial")
+<!-- end Section RoadMap -->
+<!-- Section Document -->
+@await Html.PartialAsync("_DocumentPartial")
+<!-- End Section Document -->
+<!-- Section Team -->
+@await Html.PartialAsync("_TeamPartial")
+<!-- End Section Team -->
+<!-- Section Faq -->
+@*<section class="section-faq style-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-md-12">
+                <div class="faq__content">
+                    <div class="block-text">
+                        <h3 class="heading">Have Any Question? </h3>
+                        <p>Download the whitepaper and learn about ICO Token, the unique ICO Crypto approach and the team/advisors.</p>
+                    </div>
+
+                    <div class="flat-tabs">
+                        <ul class="menu-tab">
+                            <li class="active"><h6>General</h6></li>
+                            <li><h6>Pre ICO & ICO</h6></li>
+                            <li><h6>Token</h6></li>
+                            <li><h6>Client</h6></li>
+                            <li><h6>Legal</h6></li>
+
+                        </ul>
+                        <div class="content-tab">
+                            <div class="content-inner flat-accordion">
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle active">
+                                    <h6 class="toggle-title active">What is Shopi. return/exchange policy?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                            </div>
+                            <div class="content-inner flat-accordion">
+                                <div class="flat-toggle active">
+                                    <h6 class="toggle-title active">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">What is Shopi. return/exchange policy?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                            </div>
+                            <div class="content-inner flat-accordion">
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">What is Shopi. return/exchange policy?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle active">
+                                    <h6 class="toggle-title active">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                            </div>
+                            <div class="content-inner flat-accordion">
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">What is Shopi. return/exchange policy?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle active">
+                                    <h6 class="toggle-title active">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                            </div>
+                            <div class="content-inner flat-accordion">
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle active">
+                                    <h6 class="toggle-title active">What is Shopi. return/exchange policy?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h6 class="toggle-title">How can I track my order?</h6>
+                                    <p class="toggle-content">We try to keep returns and exchanges as simple as possible. As long as they meet our criteria, it should be no problem at all to return or exchange them.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-12">
+                <div class="faq__images">
+                    <img src="~/client-side/coinbest247/assets/images/layout/imgfaq.png" alt="ICOLand">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<!-- End Section Faq -->
+<!-- Section Join -->
+@*<section class="join-now" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="join-now__main">
+                    <h3>Join our Community</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sed pulvinar nisl amet, viverra nulla ut. Aliquet nunc justo, bibendum nisl varius fringilla odio eu. Ut et, nullam tristique at ultrices. Viverra eget ultrices risus risus massa adipiscing adipiscing. Integer tempus aliquam vitae urna, ipsum mattis hendrerit quam.</p>
+                    <div class="join-now__button">
+                        <a href="#" class="btn-action style-2"><span>JOIN COMMUNITY</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<!-- End Section Join -->

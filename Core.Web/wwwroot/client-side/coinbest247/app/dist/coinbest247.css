@@ -1,0 +1,136 @@
+.home-nft, .home-music {
+    --primary-color: #C20000;
+    --font-main: "Oswald";
+}
+.header__logo
+{
+
+}
+.header__logo img {
+    height: 45px;
+}
+.btn-action.style-2 {
+    background: linear-gradient(90deg, #FE0002 0%, #9d000f75 100%);
+}
+.btn-action-outline.style-1 {
+    border-color: #C20000;
+}
+.banner-top.style-2 .banner-top__sale .sale-content {
+    backdrop-filter: blur(1px);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(90deg, rgba(119, 61, 191, 0.1) 0%, rgba(134, 53, 189, 0.1) 100%);
+}
+.banner-top__content .content-list li span:before {
+    color: #C20000;
+}
+.btn-action-outline.style-1::before {
+    background: linear-gradient(90deg, #FE0002 0%, #FC9500 100%);
+}
+.header.is-fixed.is-small {
+    border-bottom: 1px solid rgba(19, 49, 107, 0.3);
+    background: linear-gradient(153deg, rgb(5 7 8) 0%, #0f0a0bbf 100%);
+    height: 80px;
+}
+
+
+
+.chart-container {
+    height: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.custom-display {
+    display: inline-flex;
+}
+
+#chartdiv {
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+    /*padding-right: 40px;*/
+}
+
+#legend {
+    width: 250px;
+    height: 450px;
+    display: inline-block;
+    /*margin-left: 35px;*/
+}
+
+    #legend .legend-item {
+        padding: 9px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+        #legend .legend-item .legend-marker {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+
+        #legend .legend-item .legend-value {
+            font-size: 15px;
+            font-weight: 600;
+            margin-left: 22px;
+        }
+
+.hidden-md {
+    display: none;
+}
+@media only screen and (max-width: 575.9px) {
+    .custom-display {
+        margin-bottom: 0px;
+    }
+
+    #chartdiv {
+        margin-left: -7px !important;
+        margin-top: -32px;
+        width: 350px;
+    }
+
+    #legend {
+        margin-left: 42px;
+        margin-top: -100px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+}
+
+@media (max-width: 767.98px) {
+}
+
+@media (max-width: 1024px) {
+    #chartdiv {
+        /*margin-left: -200px;*/
+    }
+
+    #legend {
+        padding-left: 35px;
+    }
+}
+
+@media (max-width: 1500px) {
+    #chartdiv {
+        /*margin-left: -120px;*/
+    }
+
+
+    #legend {
+        margin-left: 35px;
+    }
+}
+
+@media (max-width: 1800px) {
+    #chartdiv {
+        /*margin-left: -120px;*/
+    }
+}

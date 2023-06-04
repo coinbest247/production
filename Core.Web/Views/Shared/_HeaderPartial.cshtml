@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Http.Extensions;
+@using Microsoft.AspNetCore.Identity
+@using Core.Extensions
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@{
+    var role = User.GetSpecificClaim("RoleName");
+}
+
+<header id="header_main" class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="header__body">
+                    <div class="header__logo">
+                        <a href="#">
+                            <img src="~/images/logo.png" />
+                        </a>
+                    </div>
+
+                    <div class="header__right">
+                        <nav id="main-nav" class="main-nav">
+                            <ul id="menu-primary-menu" class="menu">
+                                <li class="menu-item">
+                                    <a href="#">Home</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#tokenomics">Tokenomics</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#roadmap">Roadmap</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#document">Document</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#team">Team</a>
+                                </li>
+                                @*<li class="menu-item menu-item-has-children">
+                                    <a href="#">Products</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item"><a href="blog-v1.html">Token Sale</a></li>
+                                        <li class="menu-item"><a href="blog-v1.html">Affiliate Agent</a></li>
+                                        <li class="menu-item"><a href="blog-v2.html">Bot Trade AI</a></li>
+                                        <li class="menu-item"><a href="blog-v3.html">Futures Trade</a></li>
+
+                                    </ul>
+                                </li>*@
+                                <li class="menu-item">
+                                    <a href="#">Contact Us</a>
+                                </li>
+                                <li class="menu-item hidden-md">
+                                    @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        <a class="btn-action-mobile btn-action-outline style-1" href="/home">
+                                            <span>System</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn-action-mobile btn-action style-2" href="/login">
+                                            <span>Login</span>
+                                        </a>
+                                    }
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="group-button">
+                            
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <a class="btn-action-outline style-1" href="/home">
+                                    <span>System</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="btn-action style-2" href="/login">
+                                    <span>Login</span>
+                                </a>
+                            }
+                        </div>
+                        <div class="mobile-button"><span></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

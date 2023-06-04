@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="description" content="@(CommonConstants.PROJECT_NAME)" />
+    <meta name="keywords" content="@(CommonConstants.PROJECT_NAME)" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="@(CommonConstants.PROJECT_NAME) @ViewBag.Title" />
+    <meta property="og:url" content="@(CommonConstants.PROJECT_SITE)" />
+    <meta property="og:site_name" content="@(CommonConstants.PROJECT_NAME)" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@(CommonConstants.PROJECT_NAME)  - Decentralized Financial Infrastructure @ViewBag.Title</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="~/client-side/coinbest247/app/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/client-side/coinbest247/app/dist/app.css">
+    <link rel="stylesheet" href="~/client-side/coinbest247/app/dist/aos.css">
+    <!-- end Styles -->
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="~/images/tokenlogo.png">
+    <link rel="apple-touch-icon-precomposed" href="~/images/tokenlogo.png">
+    <link href="~/client-side/coinbest247/app/dist/coinbest247.css" rel="stylesheet" />
+
+    <link href="~/client-side/coinbest247/app/dist/mobile.css" rel="stylesheet" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body class="home-nft header-fixed" data-magic-cursor="show">
+    <!-- Preloading -->
+    <div class="preloader">
+        <div class=" loader">
+            <div class="square"></div>
+            <div class="path">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <p class="text-load">Loading :</p>
+        </div>
+    </div>
+    <!-- End Preloading -->
+    <!-- MAGIC CURSOR -->
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+    <!-- /MAGIC CURSOR -->
+    <!-- Header -->
+    @await Html.PartialAsync("_HeaderPartial")
+    <!-- end Header -->
+    
+    @RenderBody()
+
+    <!-- Footer -->
+    @await Html.PartialAsync("_FooterPartial")
+
+    <!-- End Footer -->
+    <a id="scroll-top"></a>
+
+    <script src="~/client-side/coinbest247/app/js/jquery.min.js"></script>
+    <script src="~/client-side/coinbest247/app/js/jquery.easing.js"></script>
+    <script src="~/client-side/coinbest247/app/js/app.js"></script>
+    <script src="~/client-side/coinbest247/app/js/count-down.js"></script>
+    <script src="~/client-side/coinbest247/app/js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="~/client-side/coinbest247/app/js/mouse.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

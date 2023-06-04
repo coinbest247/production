@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@(CommonConstants.PROJECT_NAME)  - Decentralized Financial Infrastructure @ViewBag.Title</title>
+    <meta name="description" content="@(CommonConstants.PROJECT_NAME) - Decentralized Financial Infrastructure @ViewBag.Title" />
+    <meta name="keywords" content="@(CommonConstants.PROJECT_NAME),Decentralized,Financial,staking" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="@(CommonConstants.PROJECT_NAME) - Decentralized Financial Infrastructure @ViewBag.Title" />
+    <meta property="og:url" content="@(CommonConstants.PROJECT_SITE)" />
+    <meta property="og:site_name" content="@(CommonConstants.PROJECT_NAME)" />
+
+    <link rel="shortcut icon" href="~/images/tokenlogo.png">
+    <link rel="apple-touch-icon-precomposed" href="~/images/tokenlogo.png">
+
+    <!--begin::Fonts-->
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />*@
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!--end::Fonts-->
+    <!--begin::Vendor Stylesheets(used by this page)-->
+    <link href="~/admin-side/demo1/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/admin-side/demo1/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Vendor Stylesheets-->
+    <!--begin::Global Stylesheets Bundle(used by all pages)-->
+    <link href="~/admin-side/demo1/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/admin-side/demo1/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Stylesheets Bundle-->
+
+    @RenderSection("Styles", required: false)
+
+    <!-- Google tag (gtag.js) -->
+    @*<script async src="https://www.googletagmanager.com/gtag/js?id=G-2HTMX2HHGD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2HTMX2HHGD');
+        gtag('config', 'UA-250202817-1');
+    </script>*@
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" data-kt-app-layout="dark-header" data-kt-app-header-fixed="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    <script>
+        if (document.documentElement) {
+            document.documentElement.setAttribute("data-theme", "light");
+        }
+    </script>
+
+    @*<div class="video__wrapper">
+            <video autoplay loop playsinline>
+                <source src="/video/hebetoscreen.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>*@
+
+    <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+        <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+            @await Html.PartialAsync("_HeaderPartial")
+            <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                    @RenderBody()
+                    @await Html.PartialAsync("_FooterPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*   @await Html.PartialAsync("_UtilityPartial")*@
+
+    <script>
+        var hostUrl = "assets/";
+    </script>
+
+    <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script src="~/admin-side/demo1/dist/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/admin-side/demo1/dist/assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+    <!--begin::Vendors Javascript(used by this page)-->
+    <script src="~/admin-side/demo1/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+    <script src="~/admin-side/demo1/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used by this page)-->
+    <script src="~/admin-side/demo1/dist/assets/js/widgets.bundle.js"></script>
+    <script src="~/admin-side/demo1/dist/assets/js/custom/widgets.js"></script>
+    <script src="~/admin-side/demo1/dist/assets/js/custom/apps/chat/chat.js"></script>
+    <script src="~/admin-side/demo1/dist/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="~/admin-side/demo1/dist/assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="~/admin-side/demo1/dist/assets/js/custom/utilities/modals/users-search.js"></script>
+    <!--end::Custom Javascript-->
+    <!--end::Javascript-->
+    <!--mustache-->
+    <script src="~/lib/mustache/mustache.js"></script>
+
+    <!--ckeditor-->
+    <script src="~/lib/ckeditor/ckeditor.js"></script>
+
+    <!-- twbs-pagination -->
+    <script src="~/lib/twbs-pagination/jquery.twbsPagination.js"></script>
+
+    <script src="~/admin-app/shared/be.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="~/client-app/shared/defi-helper.js"></script>
+    @Html.AntiForgeryToken()
+
+    @RenderSection("Scripts", required: false)
+</body>
+<!--end::Body-->
+</html>

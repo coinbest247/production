@@ -1,0 +1,85 @@
+﻿.select2-container {
+    width: 100% !important;
+}
+
+
+.form-select.form-select-solid {
+    border-color: #28291d;
+}
+
+.infoBotTrade {
+    margin: 0 auto 10px auto;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: var(--tv-color-pane-background,#131722)
+}
+
+    .infoBotTrade div {
+        display: flex;
+        min-width: 250px;
+        width:100%;
+        /*max-width: 400px;*/
+    }
+        .infoBotTrade div span {
+            max-width: 200px;
+            flex: 1;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#7f4444',GradientType=0 ); /* IE6-9 */
+        }
+
+        .infoBotTrade div.row_1 span {
+            height: 100px;
+            line-height: 100px;
+            background: #fff;
+            position:relative
+        }
+    .infoBotTrade div span.title {
+        background:white;
+       color:#000000
+    }
+
+.infoBotTrade-losts-title {
+    position: absolute !important;
+    width: 56px;
+    height: 20px !important;
+    bottom: 0;
+    background: red !important;
+    left: 21px;
+    border: none !important;
+    border-radius: 8px;
+    line-height: 20px !important;
+}
+.infoBotTrade-win-title {
+    position: absolute !important;
+    width: 56px;
+    height: 20px !important;
+    bottom: 0;
+    background: green !important;
+    left: 21px;
+    border: none !important;
+    border-radius: 8px;
+    line-height: 20px !important;
+}
+
+.infoBotTrade div span.win {
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30ad22', endColorstr='#4e7c43',GradientType=0 ); /* IE6-9 */
+}
+
+span#infoBotTrade_lots {
+    color: #ff0000;
+    border-right: 2px solid #2d2f3d;
+    border-bottom: 2px solid #2d2f3d;
+}
+span#infoBotTrade_profit {
+    color: #00ff0a;
+    border-left: 1px solid #2d2f3d;
+    border-bottom: 2px solid #2d2f3d;
+}
+span.lblprofit {
+    background: #00ff0a;
+}
+span.lbllost {
+    background: #ff0000;
+}

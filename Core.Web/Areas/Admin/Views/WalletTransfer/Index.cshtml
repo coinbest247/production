@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Holder";
+}
+@section Styles{
+    <link href="~/admin-app/controllers/wallet-transfer/index.css" rel="stylesheet" asp-append-version="true" />
+}
+@section Scripts{
+    <script src="~/admin-app/controllers/wallet-transfer/index.js"></script>
+    <script>
+        var walletTransferObj = new WalletTransferController();
+        walletTransferObj.initialize();
+    </script>
+}
+
+<div class="d-flex flex-column flex-column-fluid">
+
+    @await Html.PartialAsync("_ToolbarPartial")
+
+    <div id="kt_app_content" class="app-content flex-column-fluid pt-6 pt-lg-10">
+        <div id="kt_app_content_container" class="app-container container-xxl">
+            <div class="row gx-5 gx-xl-10">
+                <div class="col-xl-12 mb-5 mb-xl-10">
+                    <div class="card mb-5 mb-xl-10">
+                        <div class="card-body  w-lg-400px offset-xl-4 offset-lg-4">
+                            <form class="form w-100">
+                                @Html.AntiForgeryToken()
+                                <div class="fv-row mb-6 mt-6">
+                                    <label class="form-label fs-6 fw-bolder text-dark">Amount Transferred: <span class="text-success" id="TotalAmountTransferred"></span> @(CommonConstants.TOKEN_CODE)</label>
+                                </div>
+                                <div class="fv-row mb-6 mt-6">
+                                    <label class="form-label fs-6 fw-bolder text-dark">Wallets</label>
+                                    <input class="form-control form-control-lg form-control-solid" type="text" id="txtTotalWallet" value="1" />
+                                </div>
+                                <div class="fv-row mb-6">
+                                    <label class="form-label fs-6 fw-bolder text-dark">Amount From</label>
+                                    <input class="form-control form-control-lg form-control-solid" type="text" id="txtAmountFrom" value="100" />
+                                </div>
+                                <div class="fv-row mb-6">
+                                    <label class="form-label fs-6 fw-bolder text-dark">Amount To</label>
+                                    <input class="form-control form-control-lg form-control-solid" type="text" id="txtAmountTo" value="1000" />
+                                </div>
+                                <div class="card-footer py-6">
+                                    <div class="text-center">
+                                        <button type="button" id="btnCreate" class="btn btn-lg btn-warning me-5">
+                                            <span class="indicator-label">Create</span>
+                                        </button>
+                                        <button type="button" id="btnRecall" class="btn btn-lg btn-primary">
+                                            <span class="indicator-label">ReCall</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header pt-5">
+                            <div class="card-toolbar">
+                                <div class="d-flex flex-stack flex-wrap gap-4">
+                                    <div class="position-relative my-1">
+                                        <span class="svg-icon svg-icon-2 position-absolute top-50 translate-middle-y ms-4">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                                <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                        <input type="text" class="form-control form-control-solid form-control-sm
+                                    w-150px fs-7 ps-12" id="txt-search-keyword" placeholder="Search keyword" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                    <thead>
+                                        <tr class="fw-bolder text-muted">
+                                            <th>Amount</th>
+                                            <th>
+                                                <span class="d-block">Publish Key</span>
+                                                <span class="d-block">TxtHash Create</span>
+                                                <span class="d-block">TxtHash Recall</span>
+                                            </th>
+                                            <th class="min-w-100px">Is Recall</th>
+                                            <th class="min-w-100px">Create Date</th>
+                                            <th class="min-w-100px">Modified Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbl-content"></tbody>
+                                </table>
+                            </div>
+                            @await Component.InvokeAsync("Paging")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>
+            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">{{Amount}}</span>
+        </td>
+        <td>
+            <a class="text-dark fw-bold d-block fs-6">{{PublishKey}}</span>
+            <a class="text-dark fw-bold d-block fs-6"> {{TransferHash}}</a>
+            <a class="text-dark fw-bold d-block fs-6"> {{RecallHash}}</a>
+        </td>
+        <td>
+            <span class="text-dark fw-bold d-block fs-6">{{{IsRecall}}}</span>
+        </td>
+        <td>
+            <span class="text-dark fw-bold d-block fs-6">{{DateCreated}}</span>
+        </td>
+        <td>
+            <span class="text-dark fw-bold d-block fs-6">{{DateModified}}</span>
+        </td>
+    </tr>
+</script>
